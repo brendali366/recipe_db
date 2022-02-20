@@ -8,3 +8,18 @@
 
   <%= button_to "Destroy this recipe", @recipe, method: :delete %>
 </div>
+
+<h3>Ingredients</h3>
+<ul>
+<% for @ingredient in @recipe.ingredients %>
+<li><%= @ingredient.content %></li>
+
+<% end %>
+</ul>
+
+<h3>Steps</h3>
+<ol>
+<% for @step in @recipe.steps %>
+<li><%= @step.direction %></li>
+<% end %>
+</ol>
