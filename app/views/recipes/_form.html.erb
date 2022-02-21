@@ -10,7 +10,24 @@
       </ul>
     </div>
   <% end %>
+ 
+ <div class="form-group">
 
+    <%= form.file_field :image %>
+
+    <% if @recipe.image? %>
+
+      <%= image_tag @recipe.image.url, class: "recipe-show" %>
+
+      <%= form.check_box :remove_image %>
+
+        Remove Image
+
+    <% end %>
+
+ </div>
+
+ 
   <div>
     <%= form.label :title, style: "display: block" %>
     <%= form.text_field :title %>
@@ -20,6 +37,24 @@
     <%= form.label :description, style: "display: block" %>
     <%= form.text_area :description %>
   </div>
+
+
+  <h3>Add Ingredients</h3>
+<%= form.fields_for :ingredients do |ingredient| %>
+<%= render 'ingredient_fields', f: ingredient %>
+<% end %>
+<div class="links">
+<%= link_to_add_association 'Add Ingredient', form, :ingredients %>
+</div>
+
+<h3>Add Steps</h3>
+<%= form.fields_for :steps do |step| %>
+<%= render 'step_fields', f: step %>
+<% end %>
+<div class="links">
+<%= link_to_add_association 'Add Step', form, :steps %>
+</div>
+
 
   <div>
     <%= form.submit %>
