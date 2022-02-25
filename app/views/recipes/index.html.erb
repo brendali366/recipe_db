@@ -4,20 +4,21 @@
 <div id="recipes" class="container">
   <h1>Recipes</h1>
 
-  <div class="row">
+  <%= link_to "New Recipe", new_recipe_path, :class => "btn btn-primary"%>  <!-- btn & btn-primary are two different style class . => is a hash rocket-->
+
+  <div class="row pt-5"> <!--pt-5 is adding a padding of 5 which is 3 rems of padding from the row// 1 is less padding 5 is most-->
   <% @recipes.each do |recipe| %>
     <div class="col-md-3">
       <div class="recipe-card mb-4">
-         <%= image_tag recipe.image.url, class: "recipe-show" if recipe.image? %>
+         <%= image_tag recipe.image.url, class: "recipe-index" if recipe.image? %>
 
-          <%= render recipe %>
+          <%= render recipe %> <!--this pulls another file from rails. it's pulling in recipe, this is what render is aka reusable component pulls from recipe.htmml.erb-->
           <p>
-            <%= link_to "Show this recipe", recipe %>
+            <%= link_to "View Recipe", recipe, :class=>"btn btn-primary" %>
           </p>
-      </div><!-- recipe-card-->
-      </div><!-- col-md-3-->
+      </div><!-- recipe-card--> 
+      </div><!-- col-md-3, 12/3 = 4, so it will be in columns of 4 .  if you want 3 col... 12/4 =3 it would be md 4 instead -->
   <% end %>
 </div><!-- row-->
 </div>
 
-<%= link_to "New recipe", new_recipe_path %>

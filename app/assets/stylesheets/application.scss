@@ -1,21 +1,120 @@
 
 @import "bootstrap";
 
-img.recipe-show {
-    width: 100%;
-    height: 600px;
-    object-fit: cover;
-    object-position: center center;
+/*---GLOBAL STYLES---*/
+
+html{
+    font-size:  16px;
+}
+.btn-primary{
+    background-color: #ccd4bf;
+    border:  none;
+    border-radius:  30px;
+    padding-left:  2 rem;
+    padding-right: 2 rem;
 }
 
+.btn-primary:hover{
+    background-color: lightgray;
+    color: ccd4bf;
+
+}
+
+
+
+/*---INDEX VIEW STYLES---*/
+
 .recipe-card {
-    background: whitesmoke;
+    background-color: #f5e2e4;
     padding: 1rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display:  flex; /*this changes the formatting to rows*/
+    flex-direction:  column; /*change the direction to columns. flex is the only way to center */
+    align-items:  center; /*this centers the text and buttons */
+    justify-content: space-between;
+}
+
+.recipe-card h2 {
+    text-transform:  uppercase;
+    letter-spacing:  3 px;
+    font-size:  1.25rem;
+    margin-top:  1rem;
+    text-align:  center;
+}
+
+.recipe-card p{
+    text-align:  center;
+    font-size:  .8 rem;
+
 }
 
 .recipe-card img {
     width: 100%;
     height: 200px;
+    object-fit: cover;  /*crops image to fit cover */
+
+}
+
+
+@media only screen and (max-width:  768px){   /*this will only excute when max in 768px*/
+    html{
+        fot-size:  14px;
+    }
+}
+
+
+
+
+/* SHOW VIEW STYLES */
+
+
+.show-hero{
+    height:  450px;
+    postion:  relative;
+}
+
+img.recipe-show {
+    width: 100%;
+    height: inherit;
     object-fit: cover;
+    object-position: center center;
+} 
+/*
+This is not needed because it was just a show example for video 3
+*/
+
+/*.recipe-hero img {
+    height:  600px;
+    width:  100%;
+    object-fit:  cover;
+    object-fit-position:  center center;
+}
+*/
+
+.show-hero-overlay{
+    position: absolute ;
+    top: 0;
+    left: 0;
+    display:  flex;
+    align-items:  center;
+    justify-content: center;
+    height:  inherit;
+    width:  100%;
+    background-color:  rgba(125,104,242, 0.6); /*rgba is the only way to set opacity, the last comma val is opacity*/
+} 
+
+.show-hero-overlay h2{
+    text-align:  center;
+    color:  white;
+    font-size:  3rem;
+}
+
+.show-hero-overlay p{
+    text-align:  center; 
+    color:  white; 
+}
+
+.show-hero-overlay>div{
+    max-width:  768px;
+    margin: 0 auto;
 }

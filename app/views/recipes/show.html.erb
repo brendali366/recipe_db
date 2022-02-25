@@ -1,13 +1,17 @@
 <p style="color: green"><%= notice %></p>
+  <% if @recipe.image? %>
 
-<% if @recipe.image? %>
+  <div class= "show-hero">
+  <%= image_tag @recipe.image.url, class: "recipe-show" %>
+    <div class= "show-hero-overlay">
+      <%= render @recipe %> 
+    </div> <!---show-hero-overlay--->
+  </div> <!---show--hero--->
+  <% end %>
 
-<%= image_tag @recipe.image.url, class: "recipe-show" %>
-
-<% end %>
-
-<%= render @recipe %>
-
+<div class="container">
+     
+             
 
 
 <h3>Ingredients</h3>
@@ -15,18 +19,19 @@
   <% for @ingredient in @recipe.ingredients %>
     <li><%= @ingredient.content %></li>
   <% end %>
-</ul>
+</ul> <!--This is for Ingredients display--->
 
 <h3>Steps</h3>
 <ol>
   <% for @step in @recipe.steps %>
     <li><%= @step.direction %></li>
   <% end %>
-</ol>
+</ol> <!---This is for Steps display--->
 
-<div>
-  <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
-  <%= link_to "Back to recipes", recipes_path %>
+  <div>
+    <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
+    <%= link_to "Back to recipes", recipes_path %>
 
-  <%= button_to "Destroy this recipe", @recipe, method: :delete %>
-</div>
+    <%= button_to "Destroy this recipe", @recipe, method: :delete %>
+  </div>
+</div>  <!--container-->

@@ -27,7 +27,7 @@
 
  </div>
 
- 
+
   <div>
     <%= form.label :title, style: "display: block" %>
     <%= form.text_field :title %>
@@ -39,7 +39,7 @@
   </div>
 
 
-  <h3>Add Ingredients</h3>
+<h3>Add Ingredients</h3>
 <%= form.fields_for :ingredients do |ingredient| %>
 <%= render 'ingredient_fields', f: ingredient %>
 <% end %>
@@ -55,8 +55,6 @@
 <%= link_to_add_association 'Add Step', form, :steps %>
 </div>
 
-
-  <div>
-    <%= form.submit %>
-  </div>
+<div>
+    <%= form.submit %></div>
 <% end %>
